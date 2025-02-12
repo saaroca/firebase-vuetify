@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Guardar juego</h1>
-    <Form />
+    <Form boton="Guardar juego" />
   </div>
 </template>
 
