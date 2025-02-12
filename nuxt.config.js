@@ -61,6 +61,9 @@ export default {
         },
       },
     },
+    defaultAssets: {
+      icons: 'mdi',
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
