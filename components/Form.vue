@@ -35,6 +35,7 @@
       ></v-textarea>
 
       <v-btn color="primary" type="submit">{{ boton }}</v-btn>
+      <v-btn v-show="form.btnEliminar" color="error" @click="$emit('eliminar')">Eliminar juego </v-btn>
     </form>
   </div>
 </template>
@@ -52,7 +53,7 @@ export default {
   data() {
     return {
       form: this.game
-        ? { ...this.game }
+        ? { ...this.game, btnEliminar: true }
         : {
             nombre: '',
             genero: '',

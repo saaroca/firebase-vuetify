@@ -1,7 +1,12 @@
 <template>
   <div>
     <h1>{{ $route.params.id }}</h1>
-    <Form boton="Editar juego" @submit="editarJuego" :game="game" />
+    <Form
+      boton="Editar juego"
+      @submit="editarJuego"
+      :game="game"
+      @eliminar="eliminar($route.params.id)"
+    />
   </div>
 </template>
 
@@ -31,6 +36,17 @@ export default {
             this.$route.params.id +
             '.json',
           form
+        )
+        .then((res) => console.log(res))
+        .catch((e) => console.log(e))
+      this.$router.push('/')
+    },
+    eliminar(index) {
+      axios
+        .delete(
+          'https://fire-nuxt-10d97-default-rtdb.europe-west1.firebasedatabase.app/juegos/' +
+            index +
+            '.json'
         )
         .then((res) => console.log(res))
         .catch((e) => console.log(e))
