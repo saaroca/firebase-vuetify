@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form>
+    <form @submit.prevent="accion">
       <v-text-field
         v-model="form.nombre"
         label="Nombre del juego"
@@ -24,7 +24,7 @@
 
       <v-text-field
         v-model="form.portada"
-        label="Género del juego"
+        label="Portada"
         required
       ></v-text-field>
 
@@ -56,6 +56,11 @@ export default {
       },
       items: ['PlayStation 4', 'Xbox One', 'Nintendo Switch', 'PC'],
     }
+  },
+  methods: {
+    accion() {
+      this.$emit('submit', this.form)
+    },
   },
 }
 </script>
