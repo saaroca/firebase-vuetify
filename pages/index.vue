@@ -37,7 +37,7 @@
                   </div>
                 </v-card>
               </v-dialog>
-              <v-btn color="warning">Editar</v-btn>
+              <v-btn color="warning" @click="editar(index)">Editar</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -56,5 +56,10 @@ export default {
     await store.dispatch('get')
   },
   middleware: 'games',
+  methods: {
+    editar(index) {
+      this.$router.push(`/editar/${index}`)
+    },
+  },
 }
 </script>

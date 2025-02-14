@@ -44,16 +44,22 @@ export default {
   name: 'Form',
   props: {
     boton: '',
+    game: {
+      type: Object,
+      required: false,
+    },
   },
   data() {
     return {
-      form: {
-        nombre: '',
-        genero: '',
-        consola: '',
-        portada: '',
-        sinopsis: '',
-      },
+      form: this.game
+        ? { ...this.game }
+        : {
+            nombre: '',
+            genero: '',
+            consola: '',
+            portada: '',
+            sinopsis: '',
+          },
       items: ['PlayStation 4', 'Xbox One', 'Nintendo Switch', 'PC'],
     }
   },
